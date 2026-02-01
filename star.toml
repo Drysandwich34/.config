@@ -1,4 +1,20 @@
-# Get editor-like colors for Atom One Dark
+# Move palette to the top level
+palette = "onedark"
+
+# The format MUST be a single string, not a list
+format = """
+[](blue)\
+$os\
+[](bg:cyan fg:blue)\
+$directory\
+[](bg:magenta fg:cyan)\
+$git_branch\
+$git_status\
+[](bg:white fg:magenta)\
+$time\
+[ ](fg:white)\
+"""
+
 [palettes.onedark]
 black = '#282c34'
 blue = '#61afef'
@@ -9,40 +25,26 @@ red = '#e06c75'
 white = '#abb2bf'
 yellow = '#e5c07b'
 
-[format]
-append_string = ' '
-# This creates the "Rainbow" block effect
-interpolation = '$os$directory$git_branch$git_status$node$golang$rust$php$container$time'
-
 [os]
 disabled = false
 style = "bg:blue fg:black"
-format = "[ $symbol ]($style)"
+format = "[$symbol]($style)"
 
 [directory]
 style = "bg:cyan fg:black"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+format = "[$path]($style)"
 
 [git_branch]
 symbol = ""
 style = "bg:magenta fg:black"
 format = "[[ $symbol $branch ]($style)]"
 
-[git_status]
-style = "bg:magenta fg:black"
-format = "[[($all_status$ahead_behind )]($style)]"
-
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"
 style = "bg:white fg:black"
-format = "[ $time ]($style)"
+format = "[$time]($style)"
 
 [character]
 success_symbol = "[](fg:white) "
 error_symbol = "[](fg:red) "
-
-# Use the palette defined above
-palette = "onedark"
