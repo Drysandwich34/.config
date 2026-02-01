@@ -1,0 +1,48 @@
+# Get editor-like colors for Atom One Dark
+[palettes.onedark]
+black = '#282c34'
+blue = '#61afef'
+cyan = '#56b6c2'
+green = '#98c379'
+magenta = '#c678dd'
+red = '#e06c75'
+white = '#abb2bf'
+yellow = '#e5c07b'
+
+[format]
+append_string = ' '
+# This creates the "Rainbow" block effect
+interpolation = '$os$directory$git_branch$git_status$node$golang$rust$php$container$time'
+
+[os]
+disabled = false
+style = "bg:blue fg:black"
+format = "[ $symbol ]($style)"
+
+[directory]
+style = "bg:cyan fg:black"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:magenta fg:black"
+format = "[[ $symbol $branch ]($style)]"
+
+[git_status]
+style = "bg:magenta fg:black"
+format = "[[($all_status$ahead_behind )]($style)]"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:white fg:black"
+format = "[ $time ]($style)"
+
+[character]
+success_symbol = "[](fg:white) "
+error_symbol = "[](fg:red) "
+
+# Use the palette defined above
+palette = "onedark"
