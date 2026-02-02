@@ -1,50 +1,82 @@
-# Move palette to the top level
-palette = "onedark"
+"$schema" = 'https://starship.rs/config-schema.json'
 
-# The format MUST be a single string, not a list
 format = """
-[](blue)\
+[](color_dark)\
 $os\
-[](bg:cyan fg:blue)\
+$username\
+[](bg:color_gray fg:color_dark)\
 $directory\
-[](bg:magenta fg:cyan)\
+[](fg:color_gray bg:color_blue)\
 $git_branch\
 $git_status\
-[](bg:white fg:magenta)\
+[](fg:color_blue bg:color_cyan)\
+$c$cpp$rust$golang$nodejs$php$java$kotlin$haskell$python\
+[](fg:color_cyan bg:color_light)\
+$docker_context$conda$pixi\
+[](fg:color_light bg:color_white)\
 $time\
-[ ](fg:white)\
-"""
+[ ](fg:color_white)\
+$line_break$character"""
 
-[palettes.onedark]
-black = '#282c34'
-blue = '#61afef'
-cyan = '#56b6c2'
-green = '#98c379'
-magenta = '#c678dd'
-red = '#e06c75'
-white = '#abb2bf'
-yellow = '#e5c07b'
+palette = 'atom_one_dark'
+
+[palettes.atom_one_dark]
+color_dark     = '#282c34'
+color_gray     = '#3e4452'
+color_blue     = '#61afef'
+color_cyan     = '#56b6c2'
+color_light    = '#abb2bf'
+color_white    = '#dcdfe4'
+color_fg_light = '#abb2bf'
+color_fg_dark  = '#282c34'
+color_green    = '#98c379'
+color_red      = '#e06c75'
 
 [os]
 disabled = false
-style = "bg:blue fg:black"
-format = "[$symbol]($style)"
+style = "bg:color_dark fg:color_fg_light"
+
+[username]
+show_always = true
+style_user = "bg:color_dark fg:color_fg_light"
+style_root = "bg:color_dark fg:color_fg_light"
+format = '[ $user ]($style)'
 
 [directory]
-style = "bg:cyan fg:black"
-format = "[$path]($style)"
+style = "fg:color_fg_light bg:color_gray"
+format = "[ $path ]($style)"
+truncation_length = 3
 
 [git_branch]
 symbol = ""
-style = "bg:magenta fg:black"
-format = "[[ $symbol $branch ]($style)]"
+style = "bg:color_blue"
+format = '[[ $symbol $branch ](fg:color_fg_dark bg:color_blue)]($style)'
+
+[git_status]
+style = "bg:color_blue"
+format = '[[($all_status$ahead_behind )](fg:color_fg_dark bg:color_blue)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_cyan"
+format = '[[ $symbol( $version) ](fg:color_fg_dark bg:color_cyan)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_cyan"
+format = '[[ $symbol( $version) ](fg:color_fg_dark bg:color_cyan)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_cyan"
+format = '[[ $symbol( $version) ](fg:color_fg_dark bg:color_cyan)]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:white fg:black"
-format = "[$time]($style)"
+style = "bg:color_white"
+format = '[[  $time ](fg:color_fg_dark bg:color_white)]($style)'
 
 [character]
-success_symbol = "[](fg:white) "
-error_symbol = "[](fg:red) "
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
