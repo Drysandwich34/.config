@@ -1,4 +1,4 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = '[https://starship.rs/config-schema.json](https://starship.rs/config-schema.json)'
 
 format = """
 [](base)\
@@ -22,13 +22,32 @@ palette = "deep_one_dark"
 
 [os]
 disabled = false
-# Using 'base' (near black) for the first section
 style = "bg:base fg:text"
 
 [os.symbols]
+Alpaquita = ""
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Fedora = "󰣛"
+FreeBSD = ""
+Gentoo = "󰣨"
+Linux = "󰌽"
+Macos = "󰀵"
+Manjaro = ""
+Mint = "󰣭"
+OpenBSD = ""
+openSUSE = ""
+Raspbian = "󰐿"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+SUSE = ""
 Ubuntu = "󰕈"
 Windows = ""
-Linux = "󰌽"
 
 [username]
 show_always = true
@@ -37,7 +56,6 @@ style_root = "bg:base fg:text"
 format = '[ $user]($style)'
 
 [directory]
-# Using 'surface0' (charcoal) for the middle section
 style = "bg:surface0 fg:blue"
 format = "[ $path ]($style)"
 truncation_length = 3
@@ -54,21 +72,12 @@ format = '[[($all_status$ahead_behind )](fg:red bg:surface0)]($style)'
 [time]
 disabled = false
 time_format = "%R"
-# Using 'subtext1' (muted light grey) for the end section
 style = "bg:subtext1"
 format = '[[  $time ](fg:crust bg:subtext1)]($style)'
 
-[line_break]
-disabled = false
-
 [character]
-disabled = false
 success_symbol = '[❯](bold fg:green)'
 error_symbol = '[❯](bold fg:red)'
-
-[cmd_duration]
-style = "fg:subtext1"
-format = " in $duration "
 
 [palettes.deep_one_dark]
 red = "#e06c75"
@@ -76,9 +85,7 @@ green = "#98c379"
 blue = "#61afef"
 mauve = "#c678dd"
 text = "#abb2bf"
-# The "Ultra-Dark" tones
 subtext1 = "#5c6370" 
 overlay0 = "#282c34" 
 surface0 = "#1c1f24" 
-base = "#111216"     
-crust = "#0a0b0d"
+base = "#1
