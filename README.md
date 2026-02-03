@@ -1,42 +1,22 @@
-To install starship config on windows
-# 1. Install Starship
-winget install --id Starship.Starship --silent
+# 🌙 Ultra-Dark Starship Config
 
-# 2. Create config directory
-$configDir = "$HOME\.config"
-if (!(Test-Path $configDir)) { New-Item -ItemType Directory -Path $configDir }
+A high-contrast, "Deep One Dark" configuration for the [Starship](https://starship.rs/) prompt. This theme removes all bright yellows and oranges, replacing them with a sleek, muted palette of charcoals and deep greys.
 
-# 3. Download your TOML from GitHub
-$url = "https://raw.githubusercontent.com/Drysandwich34/.config/main/starship.toml"
-Invoke-WebRequest -Uri $url -OutFile "$configDir\starship.toml"
+## 🚀 Installation
 
-# 4. Add Starship to PowerShell Profile
-$line1 = '$env:STARSHIP_CONFIG = "$HOME\.config\starship.toml"'
-$line2 = 'Invoke-Expression (&starship init powershell)'
-if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
-Add-Content -Path $PROFILE -Value "`n$line1`n$line2"
+### 1. Requirements
+- **Starship:** [Install it here](https://starship.rs/guide/#step-1-install-starship)
+- **Nerd Font:** You **MUST** use a Nerd Font (e.g., *JetBrainsMono Nerd Font*) for icons to render.
 
-Write-Host "Done! Restart PowerShell to see your new prompt." -ForegroundColor Cyan
+### 2. Setup Guide
 
+| Shell | Setup Command |
+| :--- | :--- |
+| **Zsh (Linux/macOS)** | `curl -L https://raw.githubusercontent.com/Drysandwich34/.config/main/starship.toml -o ~/.config/starship.toml` |
+| **PowerShell (Windows)** | `Invoke-RestMethod -Uri "https://raw.githubusercontent.com/Drysandwich34/.config/main/starship.toml" -OutFile "$HOME\.config\starship.toml"` |
 
+#### Enable the Prompt
+Add the following line to your shell configuration file:
 
-To install starship on ZSH or BASH
-# 1. Install Starship
-curl -sS https://starship.rs/install.sh | sh -s -- -y
-
-# 2. Create config directory
-mkdir -p ~/.config
-
-# 3. Download your TOML from GitHub
-curl -Lo ~/.config/starship.toml https://raw.githubusercontent.com/Drysandwich34/.config/main/starship.toml
-
-# 4. Add to Shell Profile (Detects Bash or Zsh)
-if [ -n "$ZSH_VERSION" ]; then
-    echo 'eval "$(starship init zsh)"' >> ~/.zshrc
-    source ~/.zshrc
-elif [ -n "$BASH_VERSION" ]; then
-    echo 'eval "$(starship init bash)"' >> ~/.bashrc
-    source ~/.bashrc
-fi
-
-echo "Installation complete. If the prompt hasn't changed, restart your terminal."
+- **Zsh (`~/.zshrc`):** ```zsh
+  eval "$(starship init zsh)"
